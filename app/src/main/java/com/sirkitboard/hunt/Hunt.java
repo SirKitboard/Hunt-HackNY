@@ -7,8 +7,8 @@ import android.content.Intent;
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
-import com.sirkitboard.hunt.Activities.LoginActivity;
-import com.sirkitboard.hunt.Activities.MainActivity;
+import com.sirkitboard.hunt.activities.LoginActivity;
+import com.sirkitboard.hunt.activities.MainActivity;
 
 /**
  * Created by abalwani on 29/07/2016.
@@ -27,13 +27,14 @@ public class Hunt extends Application {
 
         AccessToken currentToken = AccessToken.getCurrentAccessToken();
         Intent intent;
-        if(currentToken == null || !currentToken.isExpired()) {
-            // Go to Login Screen
-            intent = new Intent(context, LoginActivity.class);
-        } else {
-            // TODO:Go to Main activity
+//        if(currentToken == null || !currentToken.isExpired()) {
+//            // Go to Login Screen
+//            intent = new Intent(context, LoginActivity.class);
+//        } else {
+//            // TODO:Go to Main activity
             intent = new Intent(context, MainActivity.class);
-        }
+//        }
+	    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
