@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+	<android.support.design.widget.AppBarLayout
+		android:id="@+id/appbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="@dimen/appbar_padding_top"
+		android:theme="@style/AppTheme.AppBarOverlay">
+
+		<android.support.v7.widget.Toolbar
+			android:id="@+id/toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			android:background="?attr/colorPrimary"
+			app:layout_scrollFlags="scroll|enterAlways"
+			app:popupTheme="@style/AppTheme.PopupOverlay">
+
+		</android.support.v7.widget.Toolbar>
+
+	</android.support.design.widget.AppBarLayout>
+
+	<android.support.percent.PercentRelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:layout_below="@id/appbar"
+		android:id="@+id/percent1">
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_widthPercent="33%"
+			android:layout_alignParentTop="true"
+			android:gravity="top|center_horizontal"
+			android:layout_alignParentStart="true"
+			android:id="@+id/linear1">
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:id="@+id/numTeams"
+				android:textSize="35sp"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:textSize="16sp"
+				android:text="Teams"/>
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_widthPercent="33%"
+			android:layout_alignParentTop="true"
+			android:gravity="top|center_horizontal"
+			android:layout_toEndOf="@id/linear1"
+			android:id="@+id/linear2">
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:id="@+id/numPlayers"
+				android:textSize="35sp"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:textSize="16sp"
+				android:text="Players"/>
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_widthPercent="33%"
+			android:layout_alignParentTop="true"
+			android:gravity="top|center_horizontal"
+			android:layout_toEndOf="@id/linear2"
+			android:id="@+id/linear3">
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:id="@+id/numTotalRecorded"
+				android:layout_gravity="center_horizontal"
+				android:textSize="35sp"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:textSize="16sp"
+				android:text="Clips"/>
+		</LinearLayout>
+	</android.support.percent.PercentRelativeLayout>
+
+	<ListView
+		android:id="@+id/teamProgressList"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="140sp"
+		android:layout_alignParentStart="true"/>
+
+</RelativeLayout>

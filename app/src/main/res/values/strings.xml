@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">Hunt</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="title_activity_login">LoginActivity</string>
+	<string name="app_name">Hunt</string>
+	<string name="action_settings">Settings</string>
+	<string name="section_format">Hello World from section: %1$d</string>
+	<string name="title_activity_login">LoginActivity</string>
+	<string name="title_activity_story_player">StoryPlayer</string>
+	<string name="hello_round">Hello Round World!</string>
+	<string name="hello_square">Hello Square World!</string>
 </resources>

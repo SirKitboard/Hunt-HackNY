@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+	android:id="@+id/team_container"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingTop="10dp">
+	<TextView
+		android:id="@+id/team_name"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:textAlignment="center"
+		android:textSize="25sp"
+		app:layout_widthPercent="50%"/>
+
+	<TextView
+		android:id="@+id/team_place"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_toEndOf="@id/team_name"
+		android:textAlignment="center"
+		android:textSize="25sp"
+		app:layout_widthPercent="50%"/>
+
+	<View
+		android:id="@+id/divider1"
+		android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_below="@id/team_name"
+		android:background="@color/colorTextPrimary"
+		android:paddingBottom="10dp"/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/divider1"
+		android:paddingTop="10dp">
+
+		<TextView
+			android:id="@+id/teamMemberListHeading"
+			android:layout_width="0dp"
+			app:layout_widthPercent="50%"
+			android:layout_alignParentTop="true"
+			android:layout_height="wrap_content"
+			android:text="Roster"/>
+
+		<TextView
+			android:id="@+id/teamStatsHeading"
+			android:layout_width="0dp"
+			app:layout_widthPercent="50%"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentEnd="true"
+			android:layout_height="wrap_content"
+			android:text="Stats"/>
+
+		<ListView
+			android:id="@+id/teamMemberList"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/teamMemberListHeading"
+			app:layout_widthPercent="50%"/>
+
+		<View
+			android:id="@+id/divider2"
+			android:layout_width="0.5dp"
+			android:layout_height="match_parent"
+			android:layout_toEndOf="@id/teamMemberList"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentBottom="true"
+			android:background="@color/colorTextPrimary"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toEndOf="@id/divider2"
+			android:layout_below="@id/teamMemberListHeading"
+			android:id="@+id/numPoints"/>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toEndOf="@id/numPoints"
+			android:layout_alignBaseline="@id/numPoints"
+			android:text="Points"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toEndOf="@id/divider2"
+			android:layout_below="@id/numPoints"
+			android:id="@+id/percentCompleted"/>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/numPoints"
+			android:layout_toEndOf="@id/percentCompleted"
+			android:layout_alignBaseline="@id/percentCompleted"
+			android:text="% Completed"/>
+
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toEndOf="@id/divider2"
+			android:layout_below="@id/percentCompleted"
+			android:id="@+id/numRecorded"/>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/percentCompleted"
+			android:layout_toEndOf="@id/numRecorded"
+			android:layout_alignBaseline="@id/numRecorded"
+			android:text="Recorded"/>
+
+	</RelativeLayout>
+</android.support.percent.PercentRelativeLayout>

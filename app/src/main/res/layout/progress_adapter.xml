@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+											   android:layout_width="match_parent"
+											   android:layout_height="match_parent"
+											   android:paddingTop="10sp"
+											   android:paddingBottom="10sp"
+											   xmlns:app="http://schemas.android.com/apk/res-auto">
+	<TextView
+		android:id="@+id/place"
+		android:layout_width="0dp"
+		android:gravity="center"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentStart="true"
+		app:layout_widthPercent="20%"
+		android:textSize="45sp"/>
+
+	<TextView
+		android:id='@+id/teamName'
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_toEndOf="@+id/place"
+		android:textSize="25sp"/>
+
+	<TextView
+		android:id='@+id/numPoints'
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentEnd="true"
+		android:paddingEnd="15sp"
+		android:textSize="15sp"/>
+
+
+	<TextView
+		android:id='@+id/numRecorded'
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_toEndOf="@+id/place"
+		android:textSize="15sp"/>
+
+	<TextView
+		android:id='@+id/percentCompleted'
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentEnd="true"
+		android:paddingEnd="15sp"
+		android:textSize="15sp"/>
+	<!---->
+	<!--<TextView-->
+		<!--android:id="@+id/timeLeft"-->
+		<!--android:layout_alignParentBottom="true"-->
+		<!--android:background="@android:color/background_light"-->
+		<!--android:layout_width="wrap_content"-->
+		<!--android:layout_height="wrap_content"/>-->
+
+	<!--<View-->
+		<!--android:layout_alignParentStart="true"-->
+		<!--android:layout_above="@id/timeLeft"-->
+		<!--android:layout_width="match_parent"-->
+		<!--android:layout_height="1dp"-->
+		<!--android:background="@android:color/background_dark"/>-->
+
+</android.support.percent.PercentRelativeLayout>

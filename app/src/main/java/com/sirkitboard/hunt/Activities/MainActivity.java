@@ -1,6 +1,7 @@
 package com.sirkitboard.hunt.activities;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,8 +20,16 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.sirkitboard.hunt.R;
 import com.sirkitboard.hunt.fragments.MapsFragment;
+import com.sirkitboard.hunt.fragments.ProgressFragment;
+import com.sirkitboard.hunt.fragments.TeamFragment;
+import com.sirkitboard.hunt.util.HuntRestAPI;
+
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
+	MapsFragment mapsFragment;
+	ProgressFragment progressFragment;
+    TeamFragment teamFragment;
+
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -44,9 +57,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -54,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+//        mViewPager.setCurrentItem(1);
 
         fragmentManager = getSupportFragmentManager();
 
@@ -126,6 +137,25 @@ public class MainActivity extends AppCompatActivity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    // Check which request we're responding to
+	    if (requestCode == 101) {
+		    if (resultCode == RESULT_OK) {
+			    Intent intent = new Intent(getApplicationContext(), VideoPreview.class);
+			    intent.putExtra("file", data.getExtras().getString("file_name"));
+			    startActivityForResult(intent, 102);
+		    }
+	    }
+	    if(requestCode == 102) {
+		    if(resultCode == RESULT_OK) {
+			    mapsFragment.reloadMaps();
+			    progressFragment.reloadData();
+		    }
+	    }
+    }
+
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -134,8 +164,25 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if(position == 1) {
-                return new MapsFragment();
+//            if(position == 0) {
+//                return new TeamFragment();
+//            }
+//            if(position == 0) {
+//                if(teamFragment == null) {
+//                    teamFragment = new TeamFragment();
+//                }
+//                return teamFragment;
+//            }
+            if(position == 0) {
+	            if(mapsFragment == null) {
+		            mapsFragment = new MapsFragment();
+	            }
+                return mapsFragment;
+            } else if(position == 1) {
+	            if(progressFragment == null) {
+		            progressFragment = new ProgressFragment();
+	            }
+                return progressFragment;
             }
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
@@ -145,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 2;
         }
 
         @Override

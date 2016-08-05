@@ -1,26 +1,63 @@
-<RelativeLayout android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/map_container"
-                xmlns:android="http://schemas.android.com/apk/res/android">
-
-	<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-	          xmlns:map="http://schemas.android.com/apk/res-auto"
-	          xmlns:tools="http://schemas.android.com/tools"
-	          android:id="@+id/map"
-	          android:name="com.google.android.gms.maps.SupportMapFragment"
-	          android:layout_width="match_parent"
-	          android:layout_height="match_parent"
-	          tools:context="com.sirkitboard.pokevision.MapsActivity" >
-
-		<Button
-			android:layout_width="wrap_content"
+<android.support.design.widget.CoordinatorLayout
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<android.support.percent.PercentRelativeLayout
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+				  xmlns:map="http://schemas.android.com/apk/res-auto"
+				  xmlns:tools="http://schemas.android.com/tools"
+				  android:id="@+id/map"
+				  android:name="com.google.android.gms.maps.SupportMapFragment"
+				  android:layout_width="match_parent"
+				  android:layout_height="match_parent"
+				  tools:context="com.sirkitboard.hunt.fragments.MapsFragment" >
+		</fragment>
+		<View
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_alignParentTop="true"
+			app:layout_widthPercent="10%"
+			android:id="@+id/spacer"/>
+		<RelativeLayout
+			android:background="@drawable/layout_stroke"
+			android:layout_width="0dp"
+			android:layout_alignParentTop="true"
+			android:layout_toEndOf="@id/spacer"
 			android:layout_height="wrap_content"
-			android:layout_gravity="right|bottom"
-			android:text="Refresh"
-			android:padding="10dp"
-			android:layout_marginTop="20dp"
-			android:paddingRight="10dp"
-			android:onClick="reloadPokemon"/>
-	</fragment>
-</RelativeLayout>
+			android:layout_marginTop="30dp"
+			app:layout_widthPercent="80%"
+			android:gravity="center_horizontal"
+			android:padding="10dp">
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:id="@+id/hintTitle"
+				android:textColor="#fc4e6e"
+				android:textSize="20sp"
+				android:text="HI"
+				android:visibility="gone"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:id="@+id/hint"
+				android:layout_below="@id/hintTitle"
+				android:textSize="12sp"
+				android:text="HI"/>
+		</RelativeLayout>
+
+	</android.support.percent.PercentRelativeLayout>
+	<android.support.design.widget.FloatingActionButton
+		android:src="@android:drawable/ic_menu_camera"
+		android:id="@+id/launchDoExperience"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal|bottom"
+		android:padding="10dp"
+		android:layout_marginBottom="15dp"
+		android:visibility="invisible"/>
+</android.support.design.widget.CoordinatorLayout>

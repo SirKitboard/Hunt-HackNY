@@ -9,7 +9,8 @@ import org.json.JSONObject;
 public interface AsyncCallback {
 	public void preExecute();
 
-	public void asyncSuccess(JSONObject object);
+	public void asyncSuccess(JSONArray jsonArray);
+	public void asyncSuccess(JSONObject jsonArray);
 
 	public void asyncFailure();
 

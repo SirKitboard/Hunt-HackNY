@@ -3,10 +3,13 @@ package com.sirkitboard.hunt;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Handler;
 
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
 import com.sirkitboard.hunt.activities.LoginActivity;
 import com.sirkitboard.hunt.activities.MainActivity;
 
@@ -24,18 +27,6 @@ public class Hunt extends Application {
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         context = getApplicationContext();
-
-        AccessToken currentToken = AccessToken.getCurrentAccessToken();
-        Intent intent;
-//        if(currentToken == null || !currentToken.isExpired()) {
-//            // Go to Login Screen
-//            intent = new Intent(context, LoginActivity.class);
-//        } else {
-//            // TODO:Go to Main activity
-            intent = new Intent(context, MainActivity.class);
-//        }
-	    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
     }
 
     public static Context getContext() {
